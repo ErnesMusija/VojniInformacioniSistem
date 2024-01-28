@@ -1,0 +1,68 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vojni informacioni sistem</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'index.css' %}">
+</head>
+<body>
+
+<div class="header">
+    <div class="user-info">
+        {% if user.is_authenticated %}
+            <p>Dobrodošli, {{ user.ime }} {{ user.prezime }}</p>
+        {% endif %}
+    </div>
+    <div class="header-buttons">
+        <a href="registration"><button>Registracija</button></a>
+        {% if user.is_authenticated %}
+            <a href="logout"><button>Odjava</button></a>
+        {% else %}
+            <a href="login"><button>Prijava</button></a>
+        {% endif %}
+    </div>
+</div>
+
+<div class="main-content">
+    <h2>Vojni informacioni sistem</h2>
+</div>
+    <div style="display: flex; justify-content: space-between; padding: 20px;">
+
+        <!-- Logistical Subsystem -->
+        <div class="communication-section">
+            <h2>Logistički Podsistem</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Sed aliquam nunc id est dapibus, sit amet scelerisque nulla lobortis.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Sed aliquam nunc id est dapibus, sit amet scelerisque nulla lobortis.</p>
+            <a href="logistics"><button>Posjeti Podsistem</button></a>
+
+        </div>
+
+        <!-- Geographical Subsystem -->
+        <div class="geographical-section">
+            <h2>Upravljanje Jedinicama</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Sed aliquam nunc id est dapibus, sit amet scelerisque nulla lobortis.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Sed aliquam nunc id est dapibus, sit amet scelerisque nulla lobortis.</p>
+            <a href="unit_management"><button>Posjeti Podsistem</button></a>
+
+        </div>
+
+        <!-- Communication Subsystem -->
+        <div class="communication-section">
+            <h2>Komunikacijski Podsistem</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Sed aliquam nunc id est dapibus, sit amet scelerisque nulla lobortis.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Sed aliquam nunc id est dapibus, sit amet scelerisque nulla lobortis.</p>
+            <a href="communication"><button>Posjeti Podsistem</button></a>
+        </div>
+
+    </div>
+
+
+</body>
+</html>

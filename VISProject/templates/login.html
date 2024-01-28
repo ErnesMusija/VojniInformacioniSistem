@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'login.css' %}">
+</head>
+<body>
+
+  <h2>Forma za prijavu</h2>
+
+  <form method="post" action="{% url 'login' %}">
+    {% csrf_token %}
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required>
+
+    <label for="password">Adresa:</label>
+    <input type="password" id="password" name="password" required>
+
+    <button type="submit">Prijavite se</button>
+  </form>
+  <p>Nemate račun? <a href="{% url 'registration' %}">Registrirajte se ovdje</a></p>
+
+</body>
+</html>

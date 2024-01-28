@@ -1,0 +1,42 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="logistics.css">
+    <title>Logistika</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'logistics.css' %}">
+</head>
+<body>
+    <div class="main-content">
+        <h2>Logistički Podsistem</h2>
+
+        <div class="logistics-section">
+            <h3> Zahtjev za logističko snabdijevanje </h3>
+             <form action="#" method="post">
+                {% csrf_token %}
+                <label for="equipment-type">Oprema koja se zahtjeva:</label>
+                <select id="equipment-type" name="equipment-type" required>
+                    {% for oprema_value in oprema_values %}
+                        <option value="{{ oprema_value }}">{{ oprema_value }}</option>
+                    {% endfor %}
+                </select>
+
+                <label for="quantity">Količina (mjerna jedinica zavisi od tipa opreme):</label>
+                <input type="number" id="quantity" name="quantity" required>
+
+                <label for="military-unit">Vojna jedinica:</label>
+                <select id="military-unit" name="military-unit" required>
+                    {% for jedinica_value in jedinica_values %}
+                        <option value="{{ jedinica_value }}">{{ jedinica_value }}</option>
+                    {% endfor %}
+                </select>
+
+                <button type="submit">Pošalji Zahtjev</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

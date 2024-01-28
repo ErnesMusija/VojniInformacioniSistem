@@ -1,0 +1,41 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="unit_management.css">
+    <title>Upravljanje</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'unit_management.css' %}">
+</head>
+<body>
+    <div class="main-content">
+        <h2>Upravljanje Vojnim Jedinicama</h2>
+
+        <div class="unit-management-section">
+            <h3>Registruj Vojnu jedinicu</h3>
+            <form action="#" method="post">
+                {% csrf_token %}
+                <label for="unit-name">Naziv jedinice:</label>
+                <input type="text" id="unit-name" name="unit-name" required>
+
+                <label for="unit-location">Naziv trenutne lokacije:</label>
+                <input type="text" id="unit-location" name="unit-location" required>
+
+                <label for="unit-coordinates">Koordinate:</label>
+                <input type="text" id="unit-coordinates" name="unit-coordinates" required>
+
+                <label for="unit-home-base">Baza:</label>
+                <select id="unit-home-base" name="unit-home-base">
+                    {% for baza_object in baza_objects %}
+                        <option value="{{ baza_object.naziv }}">{{ baza_object.naziv }}</option>
+                    {% endfor %}
+                </select>
+
+                <button type="submit">Registruj jedinicu</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

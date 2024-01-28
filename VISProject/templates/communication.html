@@ -1,0 +1,54 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="communication.css">
+    <title>Komunikacija</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'communication.css' %}">
+</head>
+<body>
+
+
+    <div class="main-content">
+        <h2>Komunikacijski Podsistem</h2>
+
+        <div class="communication-section">
+            <h3>Komunikacija sa Aviacijom</h3>
+            <form action="communication" method="post">
+            {% csrf_token %}
+                <label for="airforce-location-name">Naziv lokacije:</label>
+                <input type="text" id="airforce-location-name" name="avijacija_lokacija" required>
+
+                <label for="airforce-coordinates">Koordinate:</label>
+                <input type="text" id="airforce-coordinates" name="avijacija_koordinate" required>
+
+                <label for="airforce-request">Opis Zahtjeva:</label>
+                <textarea id="airforce-request" name="avijacija_zahtjev" rows="4" cols="50" required></textarea>
+
+                <button type="submit">Pošalji zahtjev</button>
+            </form>
+        </div>
+
+        <div class="communication-section">
+            <h3>Komunikacija sa Mornaricom</h3>
+           <form action="communication" method="post">
+               {% csrf_token %}
+                <label for="navy-location-name">Naziv lokacije:</label>
+                <input type="text" id="navy-location-name" name="mornarica_lokacija" required>
+
+                <label for="navy-coordinates">Koordinate:</label>
+                <input type="text" id="navy-coordinates" name="mornarica_koordinate" required>
+
+                <label for="navy-request">Opis zahtjeva:</label>
+                <textarea id="navy-request" name="mornarica_zahtjev" rows="4" cols="50" required></textarea>
+
+                <button type="submit">Pošalji zahtjev</button>
+            </form>
+        </div>
+
+    </div>
+</body>
+</html>
